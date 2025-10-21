@@ -1,68 +1,142 @@
-import Link from 'next/link';
 import { getPosts } from '../utils/mdx-utils';
-
-import Footer from '../components/Footer';
-import Header from '../components/Header';
-import Layout, { GradientBackground } from '../components/Layout';
-import ArrowIcon from '../components/ArrowIcon';
+import Hero from '../components/Hero';
 import { getGlobalData } from '../utils/global-data';
 import SEO from '../components/SEO';
+import ContentSection from '../components/ContentSection';
+import Stats from '../components/Stats';
+import Testimonials from '../components/Testimonials';
+import ImageGallery from '../components/ImageGallery';
+import FAQ from '../components/FAQ';
+import SocialLinks from '../components/SocialLinks';
+import NetlifyForm from '../components/NetlifyForm';
+import Carousel from '../components/Carousel';
+import Layout from '../components/Layout';
 
 export default function Index({ posts, globalData }) {
   return (
     <Layout>
       <SEO title={globalData.name} description={globalData.blogTitle} />
-      <Header name={globalData.name} />
-      <main className="w-full">
-        <h1 className="mb-12 text-3xl text-center lg:text-5xl">
-          {globalData.blogTitle}
-        </h1>
-        <ul className="w-full">
-          {posts.map((post) => (
-            <li
-              key={post.filePath}
-              className="transition border border-b-0 bg-white/10 border-gray-800/10 md:first:rounded-t-lg md:last:rounded-b-lg backdrop-blur-lg dark:bg-black/30 hover:bg-white/20 dark:hover:bg-black/50 dark:border-white/10 last:border-b"
-              data-sb-object-id={`posts/${post.filePath}`}
-            >
-              <Link
-                as={`/posts/${post.filePath.replace(/\.mdx?$/, '')}`}
-                href={`/posts/[slug]`}
-                className="block px-6 py-6 lg:py-10 lg:px-16 focus:outline-hidden focus:ring-4 focus:ring-primary/50"
-              >
-                {post.data.date && (
-                  <p
-                    className="mb-3 font-bold uppercase opacity-60"
-                    data-sb-field-path="date"
-                  >
-                    {post.data.date}
-                  </p>
-                )}
-                <h2 className="text-2xl md:text-3xl" data-sb-field-path="title">
-                  {post.data.title}
-                </h2>
-                {post.data.description && (
-                  <p
-                    className="mt-3 text-lg opacity-60"
-                    data-sb-field-path="description"
-                  >
-                    {post.data.description}
-                  </p>
-                )}
-                <ArrowIcon className="mt-4" />
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </main>
-      <Footer copyrightText={globalData.footerText} />
-      <GradientBackground
-        variant="large"
-        className="fixed top-20 opacity-40 dark:opacity-60"
+      
+      {/* Hero Section */}
+      <Hero
+        headline="Transform Your Business with Expert Coaching"
+        subheadline="Unlock your potential and achieve breakthrough results with personalized coaching strategies designed for your success."
+        primaryButtonText="Book a Free Discovery Call"
+        primaryButtonLink="/contact"
+        secondaryButtonText="View Coaching Packages"
+        secondaryButtonLink="/packages"
+        heroImage="/images/hero-image.jpg"
+        overlayOpacity="bg-black/50"
       />
-      <GradientBackground
-        variant="small"
-        className="absolute bottom-0 opacity-20 dark:opacity-10"
+      <NetlifyForm />
+      <Carousel />      
+
+      <ContentSection
+        title="Our Services"
+        subtitle="Discover what we can do for you"
+        columns={2}
+        column1={
+          {
+            type: 'text',
+            title: 'Service 1',
+            content: 'Description of service 1',
+            image: null,
+            ctaText: null,
+            ctaLink: null
+          }
+        }
+        column2={
+          {
+            type: 'text',
+            title: 'Service 2',
+            content: 'Description of service 2',
+            image: null,
+            ctaText: null,
+            ctaLink: null
+          }
+        }
+        column3={
+          {
+            type: 'text',
+            title: 'Service 3',
+            content: 'Description of service 3',
+            image: null,
+            ctaText: null,
+            ctaLink: null
+          }
+        }
       />
+      <SocialLinks />
+
+      <Stats
+        title="Our Impact"
+        subtitle="Numbers that speak for themselves"
+        cards={
+          [
+            {
+              title: 'Happy Clients',
+              subtitle: 'Satisfied customers',
+              description: 'Clients who have transformed their lives with our coaching',
+              number: 500,
+              suffix: '+',
+              prefix: '',
+              icon: 'Users',
+              image: null,
+              animationDuration: 2000
+            }
+          ]
+        }
+      />    
+
+      <Testimonials
+        title="What Our Clients Say"
+        subtitle="Real stories from real people who have transformed their lives"
+        layout="grid"
+        columns={2}
+        testimonials={
+          [
+            {
+              quote: 'This coaching program completely transformed my business. I went from struggling to make ends meet to generating six-figure revenue in just 8 months.',
+              name: 'Sarah Johnson',
+              business: 'E-commerce Entrepreneur',
+              rating: 5
+            },
+            {
+              quote: 'The personalized approach and expert guidance helped me overcome my biggest challenges and achieve goals I never thought possible.',
+              name: 'Michael Chen',
+              business: 'Tech Startup Founder',
+              rating: 5
+            }
+          ]
+        }
+      />
+      <ImageGallery
+        title=""
+        subtitle=""
+        columns={3}
+        aspectRatio="wide"
+        showTitles={false}
+        lightbox={true}
+        showDescriptions={false}
+        hoverEffect="overlay"
+        images={
+          [
+            {
+              src: '/images/gallery-1.jpg',
+              alt: 'Gallery Image 1',
+              title: 'Image Title',
+              description: 'Optional description text',
+            },
+            {
+              src: '/images/gallery-2.jpg',
+              alt: 'Gallery Image 2',
+              title: 'Another Image',
+              description: 'More details about this image',
+            }
+          ]
+        }
+      />
+      <FAQ />
     </Layout>
   );
 }
