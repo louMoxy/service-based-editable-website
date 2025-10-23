@@ -207,7 +207,7 @@ const VideoEmbed = ({
     if (!showTitle && !showDescription) return null;
     
     return (
-      <div className="mt-4">
+      <div className="my-4 px-4">
         {showTitle && title && (
           <h3 className="text-xl font-semibold text-white mb-2">
             {title}

@@ -136,13 +136,13 @@ export default function Index({ posts, globalData }) {
         images={
           [
             {
-              src: '/images/gallery-1.jpg',
+              src: '/images/random-image.jpeg',
               alt: 'Gallery Image 1',
               title: 'Image Title',
               description: 'Optional description text',
             },
             {
-              src: '/images/gallery-2.jpg',
+              src: '/images/random-image.jpeg',
               alt: 'Gallery Image 2',
               title: 'Another Image',
               description: 'More details about this image',
