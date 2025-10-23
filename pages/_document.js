@@ -10,6 +10,15 @@ class MyDocument extends Document {
       <Html lang="en" className="theme-compiled">
         <Head>
           <style>{`:root{${cssVars}}`}</style>
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+                if (window.netlifyIdentity) {
+                  window.netlifyIdentity.init();
+                }
+              `,
+            }}
+          />
         </Head>
         <body
           className={`antialiased text-lg bg-white dark:bg-gray-900 dark:text-white leading-base`}

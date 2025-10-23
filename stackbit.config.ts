@@ -24,6 +24,75 @@ export default defineStackbitConfig({
                         { name: "pageId", type: "string", hidden: true }
                     ]
                   },
+                {
+                    name: "GlobalStyles",
+                    type: "data",
+                    label: "Global styles",
+                    file: "content/data/style.json",
+                    fields: [
+                        {
+                            type: "enum",
+                            name: "mode",
+                            label: "Theme Mode",
+                            controlType: "button-group",
+                            options: [
+                                { label: "Light", value: "light" },
+                                { label: "Dark", value: "dark" }
+                            ],
+                            default: "light"
+                        },
+                        { 
+                            type: "color", 
+                            name: "primaryColor", 
+                            label: "Primary color",
+                            default: "#3b82f6"
+                        },
+                        { 
+                            type: "color", 
+                            name: "secondaryColor", 
+                            label: "Secondary color",
+                            default: "#8b5cf6"
+                        },
+                        { 
+                            type: "color", 
+                            name: "accentColor", 
+                            label: "Accent color",
+                            default: "#f59e0b"
+                        },
+                        { 
+                            type: "color", 
+                            name: "backgroundColor", 
+                            label: "Background color",
+                            default: "#ffffff"
+                        },
+                        { 
+                            type: "color", 
+                            name: "textColor", 
+                            label: "Text color",
+                            default: "#1f2937"
+                        },
+                        {
+                            type: "enum",
+                            name: "fontFamily",
+                            label: "Font Family",
+                            options: [
+                                { label: "Inter", value: "Inter" },
+                                { label: "Roboto", value: "Roboto" },
+                                { label: "Open Sans", value: "Open Sans" },
+                                { label: "Lato", value: "Lato" }
+                            ],
+                            default: "Inter"
+                        },
+                        {
+                            type: "number",
+                            name: "borderRadius",
+                            label: "Border Radius (px)",
+                            default: 8,
+                            min: 0,
+                            max: 50
+                        }
+                    ]
+                }
             ],
             assetsConfig: {
                 referenceType: 'static',
@@ -63,23 +132,17 @@ export default defineStackbitConfig({
         return documents
             .filter(d => pageModels.includes(d.modelName))
             .map(document => {
-                // Use the pageId value for the stableId
-                const slugField = document.fields.slug?.type === "slug"
-                    ? document.fields.slug
-                    : undefined;
-                const pageIdField = document.fields.pageId?.type === "string"
-                    ? document.fields.pageId
-                    : undefined;
+                // Extract slug from the file path for posts
+                const filePath = (document as any).filePath || '';
+                const slug = filePath.replace('posts/', '').replace('.mdx', '');
+                const pageId = (document as any).fields?.pageId?.value || document.id;
                 
-                const slug = getLocalizedFieldForLocale(slugField);
-                const pageId = getLocalizedFieldForLocale(pageIdField);
+                if (!slug || !pageId) return null;
                 
-                if (!slug?.value || !pageId?.value) return null;
-                
-                const urlPath = "/posts/" + slug.value.replace(/^\/+/, "");
+                const urlPath = "/posts/" + slug;
                 
                 return {
-                    stableId: pageId.value,
+                    stableId: pageId,
                     urlPath,
                     document,
                     isHomePage: urlPath === "/"
@@ -93,8 +156,8 @@ export default defineStackbitConfig({
             label: "Global styles",
             icon: "style",
             modelName: "GlobalStyles",
-            srcType: "global-styles",
-            srcProjectId: "5e264862-277e-4641-8f53-56833839985e"
+            srcType: "git",
+            srcProjectId: "main"
         }
     ]
 });
