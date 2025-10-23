@@ -111,7 +111,7 @@ const Stats = ({
         }, delay);
       });
     }
-  }, [isVisible, animateNumbers]);
+  }, [isVisible, animateNumbers, cards, animationDelay]);
 
   const animateNumber = (targetNumber, duration, cardIndex) => {
     const startTime = Date.now();

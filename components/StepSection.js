@@ -142,6 +142,15 @@ const StepSection = ({
     }
   };
   
+  // Animate steps sequentially
+  const animateSteps = () => {
+    steps.forEach((_, index) => {
+      setTimeout(() => {
+        setVisibleSteps(prev => [...prev, index]);
+      }, index * animationDelay);
+    });
+  };
+  
   // Intersection Observer for animation
   useEffect(() => {
     if (!animateOnScroll) {
@@ -166,16 +175,7 @@ const StepSection = ({
     }
     
     return () => observer.disconnect();
-  }, []);
-  
-  // Animate steps sequentially
-  const animateSteps = () => {
-    steps.forEach((_, index) => {
-      setTimeout(() => {
-        setVisibleSteps(prev => [...prev, index]);
-      }, index * animationDelay);
-    });
-  };
+  }, [animateOnScroll, steps, animationDelay]);
   
   // Get step classes
   const getStepClasses = (step, index) => {

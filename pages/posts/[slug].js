@@ -9,7 +9,7 @@ import {
 import { MDXRemote } from 'next-mdx-remote';
 import Head from 'next/head';
 import Link from 'next/link';
-import { ArrowRightIcon } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import CustomImage from '../../components/CustomImage';
 import CustomLink from '../../components/CustomLink';
 import Footer from '../../components/Footer';
@@ -78,7 +78,7 @@ export default function PostPage({
               <h4 className="mb-6 text-2xl text-gray-700 dark:text-white">
                 {prevPost.title}
               </h4>
-              <ArrowRightIcon className="mx-auto mt-auto transform rotate-180 md:mr-0" />
+              <ArrowRight className="mx-auto mt-auto transform rotate-180 md:mr-0" />
             </Link>
           )}
           {nextPost && (
@@ -92,7 +92,7 @@ export default function PostPage({
               <h4 className="mb-6 text-2xl text-gray-700 dark:text-white">
                 {nextPost.title}
               </h4>
-              <ArrowRightIcon className="mx-auto mt-auto md:ml-0" />
+              <ArrowRight className="mx-auto mt-auto md:ml-0" />
             </Link>
           )}
         </div>
