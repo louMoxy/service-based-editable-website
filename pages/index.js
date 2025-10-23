@@ -11,11 +11,25 @@ import SocialLinks from '../components/SocialLinks';
 import NetlifyForm from '../components/NetlifyForm';
 import Carousel from '../components/Carousel';
 import Layout from '../components/Layout';
+import CalloutBanner from '../components/CalloutBanner';
+import Pricing from '../components/Pricing';
+import VideoEmbed from '../components/VideoEmbed';
+import BlogList from '../components/BlogList';
+import Breadcrumbs from '../components/Breadcrumbs';
+import StepSection from '../components/StepSection';
+import SectionDivider from '../components/SectionDivider';
 
 export default function Index({ posts, globalData }) {
   return (
     <Layout>
       <SEO title={globalData.name} description={globalData.blogTitle} />
+      <Breadcrumbs />
+      <StepSection layout="vertical" />
+      <SectionDivider type="wave" direction="up" color="white" backgroundColor="bg-white" height="h-16" waveIntensity="medium" curveRadius="medium" slopeAngle="medium" flip={false} className="w-full" />
+      <BlogList posts={posts.slice(0, 3)} />
+      <VideoEmbed />
+      <Pricing />
+      <CalloutBanner />
       
       {/* Hero Section */}
       <Hero

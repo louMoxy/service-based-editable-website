@@ -9,7 +9,7 @@ import {
 import { MDXRemote } from 'next-mdx-remote';
 import Head from 'next/head';
 import Link from 'next/link';
-import ArrowIcon from '../../components/ArrowIcon';
+import { ArrowRightIcon } from 'lucide-react';
 import CustomImage from '../../components/CustomImage';
 import CustomLink from '../../components/CustomLink';
 import Footer from '../../components/Footer';
@@ -44,8 +44,7 @@ export default function PostPage({
         title={`${frontMatter.title} - ${globalData.name}`}
         description={frontMatter.description}
       />
-      <Header name={globalData.name} />
-      <article className="px-6 md:px-0" data-sb-object-id={`posts/${slug}.mdx`}>
+      <article className="px-6 md:px-0 max-w-7xl mx-auto my-12" data-sb-object-id={`posts/${slug}.mdx`}>
         <header>
           <h1
             className="mb-12 text-3xl text-center md:text-5xl dark:text-white"
@@ -79,7 +78,7 @@ export default function PostPage({
               <h4 className="mb-6 text-2xl text-gray-700 dark:text-white">
                 {prevPost.title}
               </h4>
-              <ArrowIcon className="mx-auto mt-auto transform rotate-180 md:mr-0" />
+              <ArrowRightIcon className="mx-auto mt-auto transform rotate-180 md:mr-0" />
             </Link>
           )}
           {nextPost && (
@@ -93,7 +92,7 @@ export default function PostPage({
               <h4 className="mb-6 text-2xl text-gray-700 dark:text-white">
                 {nextPost.title}
               </h4>
-              <ArrowIcon className="mx-auto mt-auto md:ml-0" />
+              <ArrowRightIcon className="mx-auto mt-auto md:ml-0" />
             </Link>
           )}
         </div>

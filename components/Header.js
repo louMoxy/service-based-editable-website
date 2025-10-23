@@ -37,7 +37,6 @@ const Header = ({
   
   // Styling options
   headerStyle = "default", // 'default', 'transparent', 'solid', 'glass'
-  position = "fixed", // 'fixed', 'static', 'sticky'
   size = "default", // 'default', 'compact', 'large'
   
   // Layout options
@@ -72,9 +71,6 @@ const Header = ({
   const getHeaderClasses = () => {
     const baseClasses = "w-full z-50 transition-all duration-300";
     
-    // Position
-    const positionClasses = position === 'fixed' ? 'fixed top-0 left-0' : 
-                           position === 'sticky' ? 'sticky top-0' : '';
     
     // Style
     let styleClasses = '';
@@ -96,7 +92,7 @@ const Header = ({
     const sizeClasses = size === 'compact' ? 'py-2' : 
                        size === 'large' ? 'py-6' : 'py-4';
     
-    return `${baseClasses} ${positionClasses} ${styleClasses} ${sizeClasses} ${className}`;
+    return `${baseClasses} ${styleClasses} ${sizeClasses} ${className}`;
   };
 
   const getLogoClasses = () => {

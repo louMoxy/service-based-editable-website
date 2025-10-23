@@ -6,14 +6,14 @@ import Layout, { GradientBackground } from '../components/Layout';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import BlogPostCard from '../components/BlogPostCard';
+import Breadcrumbs from '../components/Breadcrumbs';
 
 export default function Blog({ posts, globalData }) {
   return (
     <Layout>
       <SEO title={`Blog - ${globalData.name}`} description={globalData.blogTitle} />
-      <Header name={globalData.name} />
-      
-      <main className="w-full">
+      <Breadcrumbs />
+      <main className="w-full my-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Blog Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">

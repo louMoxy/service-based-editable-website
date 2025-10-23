@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import ArrowIcon from './ArrowIcon';
+import { ArrowRightIcon } from 'lucide-react';
 
 const BlogPostCard = ({
   post,
@@ -83,7 +83,7 @@ const BlogPostCard = ({
           className="inline-flex items-center text-blue-600 hover:text-blue-800 font-semibold transition-colors duration-200"
         >
           Read More
-          <ArrowIcon className="ml-2 w-4 h-4" />
+          <ArrowRightIcon className="ml-2 w-4 h-4" />
         </Link>
       </div>
     </article>

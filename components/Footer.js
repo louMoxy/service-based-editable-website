@@ -87,7 +87,6 @@ const Footer = ({
   showSocial = true,
   showCopyright = true,
   copyrightText = "© 2024 Your Company. All rights reserved.",
-  className = ""
 }) => {
   
   // Icon mapping
