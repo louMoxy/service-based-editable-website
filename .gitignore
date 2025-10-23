@@ -40,3 +40,6 @@ yarn-error.log*
 
 # netlify
 .netlify
+
+# Remove problematic template directory
+netlify-templates-ts-mui-nextjs-starter/
