@@ -9,21 +9,21 @@ const Carousel = ({
   // Carousel data
   items = [
     {
-      image: "/images/carousel-1.jpg",
+      image: "/images/random-image.jpeg",
       title: "Featured Item 1",
       description: "Description of the first featured item",
       overlayText: "New Collection",
       link: "/featured-1"
     },
     {
-      image: "/images/carousel-2.jpg",
+      image: "/images/random-image.jpeg",
       title: "Featured Item 2",
       description: "Description of the second featured item",
       overlayText: "Limited Edition",
       link: "/featured-2"
     },
     {
-      image: "/images/carousel-3.jpg",
+      image: "/images/random-image.jpeg",
       title: "Featured Item 3",
       description: "Description of the third featured item",
       overlayText: "Best Seller",
