@@ -1,0 +1,10 @@
+{
+  "mode": "light",
+  "primaryColor": "#3b82f6",
+  "secondaryColor": "#8b5cf6",
+  "accentColor": "#f59e0b",
+  "backgroundColor": "#ffffff",
+  "textColor": "#1f2937",
+  "fontFamily": "Inter",
+  "borderRadius": 8
+}

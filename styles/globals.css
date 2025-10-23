@@ -9,6 +9,15 @@
   --color-gradient-4: var(--theme-gradient-4);
   --font-primary: var(--theme-headings);
   --font-secondary: var(--theme-body);
+  
+  /* Global styles from content/data/style.json */
+  --global-primary: #3b82f6;
+  --global-secondary: #8b5cf6;
+  --global-accent: #f59e0b;
+  --global-background: #ffffff;
+  --global-text: #1f2937;
+  --global-font-family: Inter;
+  --global-border-radius: 8px;
 }
 
 @custom-variant dark (&:where(.dark, .dark *));

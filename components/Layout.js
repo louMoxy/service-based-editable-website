@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import styles from './Layout.module.css';
 import Header from './Header';
 import Footer from './Footer';
+import GlobalStylesProvider from './GlobalStylesProvider';
 
 export function GradientBackground({ variant, className }) {
   const classes = classNames(
@@ -52,10 +53,12 @@ export default function Layout({ children }) {
   }, []);
 
   return (
-    <div >
-      <Header />
-      {children}
-      <Footer/>
-    </div>
+    <GlobalStylesProvider>
+      <div >
+        <Header />
+        {children}
+        <Footer/>
+      </div>
+    </GlobalStylesProvider>
   );
 }
